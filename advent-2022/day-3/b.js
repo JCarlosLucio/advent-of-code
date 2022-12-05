@@ -9,28 +9,23 @@ const getPriority = (letter) => {
   return charCode - 65 + 27;
 };
 
-const rucksacks = contents.split('\n'); // ['lnhnQGrMgthMlntlGfQhgWWcRSDcVCrLWzRSrRFDRN',  'PqrrrRnPBbrVhVqFrFVRPVhZLvNSNvLZcQvtJfRvNScJNJ', ...]
+const total = contents.split('\n').reduce(
+  (acc, curr) => {
+    acc.group.push(curr);
+    if (acc.group.length === 3) {
+      const {
+        sum,
+        group: [first, second, third],
+      } = acc;
+      const badge = [...first].find(
+        (item) => second.includes(item) && third.includes(item)
+      );
+      return { sum: sum + getPriority(badge), group: [] };
+    }
 
-const groups = []; // [['lnhnQGrMgthMlnt',  'PqrrrRnPBbrVhVqFrFVRPV','lGfQhgWWcRSDcVC'], ...]
-
-let tempGroup = [];
-
-for (const sack of rucksacks) {
-  tempGroup.push(sack);
-  if (tempGroup.length === 3) {
-    groups.push(tempGroup);
-    tempGroup = [];
-  }
-}
-
-const total = groups
-  .map(([first, second, third]) => {
-    const badge = [...first].find(
-      (item) => second.includes(item) && third.includes(item)
-    );
-
-    return getPriority(badge);
-  }) // [2, 22, ...]
-  .reduce((acc, curr) => acc + curr);
+    return acc;
+  },
+  { sum: 0, group: [] }
+).sum;
 
 console.log('Total priorities: ', total); // Total priorities:  2752
