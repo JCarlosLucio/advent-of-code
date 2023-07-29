@@ -4,17 +4,19 @@ My solutions for [advent of code](https://adventofcode.com/) challenges.
 
 ## Running solutions
 
-Get your input from [Advent of Code](https://adventofcode.com/)
+1. Get your input from [Advent of Code](https://adventofcode.com/).
 
-Create input file in `day-*` directory
+2. Create input file in `day-*` directory.
 
-```
+```sh
 cd advent-2022/day-1
 touch input.txt
 ```
 
-Paste your input and then run the solution
+3. Paste your input in `input.txt`.
 
-```
+4. Run the solution.
+
+```sh
 node a.js
 ```
