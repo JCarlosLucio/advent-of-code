@@ -18,5 +18,5 @@ touch input.txt
 4. Run the solution.
 
 ```sh
-node a.js
+bun a.ts
 ```
