@@ -4,18 +4,18 @@ My solutions for [advent of code](https://adventofcode.com/) challenges.
 
 ## Running solutions
 
-1. Get your input from [Advent of Code](https://adventofcode.com/).
-
-2. Create input file in `day-*` directory.
+1. Copy `template` directory into `day-*` directory. `day-*` directory gets
+   created on copy if it doesn't exist.
 
 ```sh
-cd advent-2022/day-1
-touch input.txt
+cp -r ../template/ day-2
 ```
 
-3. Paste your input in `input.txt`.
+4. Get your input from [Advent of Code](https://adventofcode.com/).
 
-4. Run the solution.
+5. Paste your input in `input.txt`.
+
+6. Run the solution.
 
 ```sh
 bun a.ts
