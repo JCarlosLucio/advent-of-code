@@ -60,7 +60,7 @@ function countPositions(input: string): number {
       dir = (dir + 1) % 4;
       nextX = x + directions[dir][1];
       nextY = y + directions[dir][0];
-      nextCell = grid[y]?.[x];
+      nextCell = grid[nextY]?.[nextX];
     }
     x = nextX;
     y = nextY;
