@@ -74,13 +74,10 @@ function findLoop(cells: string[]) {
   if (cells.length < 2) {
     return false;
   }
-  let loop = 0;
 
   let tort = 0;
   let hare = 1;
-  while (cells.length > tort) {
-    tort++;
-    hare = 2 * tort;
+  while (cells.length > hare) {
     const tortC = cells[tort];
     const hareC = cells[hare];
 
@@ -89,11 +86,11 @@ function findLoop(cells: string[]) {
     }
 
     if (tortC === hareC) {
-      loop++;
-    }
-    if (loop === 3) {
       return true;
     }
+
+    tort++;
+    hare = 2 * tort;
   }
   return false;
 }
@@ -141,12 +138,13 @@ function countLoops(input: string): number {
       x = nextX;
       y = nextY;
       cell = nextCell;
-      cells.push(`${x},${y}`);
+      cells.push(`${dir},${x},${y}`);
       if (findLoop(cells)) {
         loops++;
         break;
       }
     }
+    console.log(loops);
   }
 
   return loops;
