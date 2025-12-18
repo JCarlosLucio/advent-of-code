@@ -4,4 +4,4 @@
 const file = Bun.file('input.txt');
 const input = await file.text();
 
-const testInput = '';
+const testInput = ``;
